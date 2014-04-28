@@ -95,9 +95,9 @@ module KnowledgebaseHelper
   
   def article_tabs
     tabs = [{:name => 'content', :action => :content, :partial => 'articles/sections/content', :label => :label_content},
-            {:name => 'comments', :action => :comments, :partial => 'articles/sections/comments', :label => :label_comment_plural},
-            {:name => 'attachments', :action => :attachments, :partial => 'articles/sections/attachments', :label => :label_attachment_plural},
-            {:name => 'history', :action => :history, :partial => 'articles/sections/history', :label => :label_history}
+            {:name => 'comments', :action => :comments, :partial => 'articles/sections/comments', :label => :label_comment_plural, :count => @comments.length},
+            {:name => 'attachments', :action => :attachments, :partial => 'articles/sections/attachments', :label => :label_attachment_plural, :count => @attachments.length},
+            {:name => 'history', :action => :history, :partial => 'articles/sections/history', :label => :label_history, :count => @versions.length}
             ]
     # TODO permissions?            
     # tabs.select {|tab| User.current.allowed_to?(tab[:action], @project)}
